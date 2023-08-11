@@ -48,7 +48,20 @@ class _HomePageState extends State<HomePage> {
                       context: context,
                       onCode: (code) {
                         setState(() {
-                          this.code = code;
+                          // this.code = code;
+                          if (code != null) {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(20, 10, 20, 30),
+                                    title: Center(child: Text("Hasil Scan")),
+                                    content: Text(code.toString()),
+                                  );
+                                });
+                          } else
+                            (null);
                         });
                       });
                 },
